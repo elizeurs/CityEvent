@@ -13,14 +13,20 @@ class EventCell: UICollectionViewCell {
   
   let imageView: UIImageView = {
     let iv = UIImageView()
-    iv.backgroundColor = .systemGray
-    iv.contentMode = .scaleAspectFit
+//    iv.backgroundColor = .systemGray
+//    iv.contentMode = .scaleAspectFit
+    iv.contentMode = .scaleAspectFill
+
+//    iv.layer.cornerRadius = 10
+//    iv.clipsToBounds = true
     return iv
   }()
   
   lazy var nameContainerView: UIView = {
     let view = UIView()
-    view.backgroundColor = .systemPink
+    view.backgroundColor = .darkGray
+//    self.layer.cornerRadius = 10
+//    self.clipsToBounds = true
     
     view.addSubview(nameLabel)
     nameLabel.center(inView: view)
