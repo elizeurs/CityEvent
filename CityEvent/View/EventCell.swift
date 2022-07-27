@@ -6,14 +6,22 @@
 //
 
 import UIKit
+import SDWebImage
 
 class EventCell: UICollectionViewCell {
   
   // MARK: - Properties
   
+  var event: Event! {
+    didSet {
+      imageView.sd_setImage(with: URL(string: event.image ?? ""), placeholderImage: UIImage(named: "calendarIcon.jpg"))
+      nameLabel.text = event?.title
+    }
+  }
+  
   let imageView: UIImageView = {
     let iv = UIImageView()
-//    iv.backgroundColor = .systemGray
+//    iv.backgroundColor = .systemGray5
 //    iv.contentMode = .scaleAspectFit
     iv.contentMode = .scaleAspectFill
 
@@ -24,7 +32,7 @@ class EventCell: UICollectionViewCell {
   
   lazy var nameContainerView: UIView = {
     let view = UIView()
-    view.backgroundColor = .darkGray
+    view.backgroundColor = .systemBrown
 //    self.layer.cornerRadius = 10
 //    self.clipsToBounds = true
     
@@ -36,7 +44,7 @@ class EventCell: UICollectionViewCell {
   
   let nameLabel: UILabel = {
     let label = UILabel()
-    label.textColor = .white
+    label.textColor = .black
     label.font =  UIFont.systemFont(ofSize: 16, weight: .semibold)
     label.text = "Feira de Produtos Naturais e Orgânicos"
     return label
@@ -62,10 +70,10 @@ class EventCell: UICollectionViewCell {
     self.clipsToBounds = true
     
     addSubview(imageView)
-    imageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: self.frame.height - 32)
+    imageView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: self.frame.height - 50)
     
     addSubview(nameContainerView)
-    nameContainerView.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 32)
+    nameContainerView.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
   }
 }
 

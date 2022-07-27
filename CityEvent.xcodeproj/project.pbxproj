@@ -16,6 +16,8 @@
 		7542EA71288C9EDB00F79148 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7542EA70288C9EDB00F79148 /* EventController.swift */; };
 		7542EA73288CAB2300F79148 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7542EA72288CAB2300F79148 /* EventCell.swift */; };
 		7542EA75288CB84600F79148 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7542EA74288CB84600F79148 /* Extensions.swift */; };
+		75A53573288EFA550059BD37 /* EventInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53572288EFA550059BD37 /* EventInfoController.swift */; };
+		75A53575288F780E0059BD37 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A53574288F780E0059BD37 /* Date+Utils.swift */; };
 		75F9F528288DFB670032B59D /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 75F9F527288DFB670032B59D /* SDWebImage */; };
 		75F9F52A288E14DE0032B59D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F9F529288E14DE0032B59D /* Service.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,8 @@
 		7542EA70288C9EDB00F79148 /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		7542EA72288CAB2300F79148 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		7542EA74288CB84600F79148 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		75A53572288EFA550059BD37 /* EventInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoController.swift; sourceTree = "<group>"; };
+		75A53574288F780E0059BD37 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		75F9F529288E14DE0032B59D /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,7 +81,6 @@
 				7542EA5E288C846F00F79148 /* Assets.xcassets */,
 				7542EA60288C846F00F79148 /* LaunchScreen.storyboard */,
 				7542EA63288C846F00F79148 /* Info.plist */,
-				7542EA69288C86A100F79148 /* Event.swift */,
 			);
 			path = CityEvent;
 			sourceTree = "<group>";
@@ -94,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				7542EA70288C9EDB00F79148 /* EventController.swift */,
+				75A53572288EFA550059BD37 /* EventInfoController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -109,6 +113,7 @@
 		7542EA6E288C9E6600F79148 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7542EA69288C86A100F79148 /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				7542EA74288CB84600F79148 /* Extensions.swift */,
+				75A53574288F780E0059BD37 /* Date+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -199,11 +205,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7542EA6A288C86A100F79148 /* Event.swift in Sources */,
+				75A53575288F780E0059BD37 /* Date+Utils.swift in Sources */,
 				75F9F52A288E14DE0032B59D /* Service.swift in Sources */,
 				7542EA75288CB84600F79148 /* Extensions.swift in Sources */,
 				7542EA71288C9EDB00F79148 /* EventController.swift in Sources */,
 				7542EA73288CAB2300F79148 /* EventCell.swift in Sources */,
 				7542EA56288C846C00F79148 /* AppDelegate.swift in Sources */,
+				75A53573288EFA550059BD37 /* EventInfoController.swift in Sources */,
 				7542EA58288C846C00F79148 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,10 @@ class Service {
   static let shared = Service()
   
   func fetchEvents(completion: @escaping ([Event], Error?) -> ()) {
+    
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .millisecondsSince1970
+    
     print("Fetching city events from service layer")
     
     let urlString = "http://5f5a8f24d44d640016169133.mockapi.io/api/events"
@@ -32,7 +36,7 @@ class Service {
 
       guard let data = data else { return }
       do {
-        let event = try JSONDecoder().decode([Event].self, from: data)
+        let event = try decoder.decode([Event].self, from: data)
         
         completion(event, nil)
 //        print(event)

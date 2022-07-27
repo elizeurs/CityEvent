@@ -44,48 +44,14 @@ class EventController: UICollectionViewController {
         }
       }
     }
-  
-  
-  
-  
-  
-//  func fetchEvent(completionHandler: @escaping ([Event]) -> Void) {
-//    let urlString = "http://5f5a8f24d44d640016169133.mockapi.io/api/events"
-//    guard let url = URL(string: urlString) else { return }
-//
-//    // fetch data  from internet
-//    URLSession.shared.dataTask(with: url) { (data, resp, err) in
-//
-//      if let err = err {
-//        print("Failed to fetch events:", err)
-//        return
-//      }
-//
-//      // success
-////      print(data)
-////      print(String(data: data!, encoding: .utf8))
-//
-//      guard let data = data else { return }
-//
-//      do {
-//        let event = try JSONDecoder().decode([Event].self, from: data)
-//
-//        completionHandler(event)
-//
-//      } catch let jsonErr {
-//        print("Failed to decode json:", jsonErr)
-//      }
-//    }.resume() // fires off the request
-//  }
-  
 
-  
   // MARK: - Helper Functions
   
   func configureViewComponents() {
-    collectionView.backgroundColor = .systemGray6
+    collectionView.backgroundColor = .white
+    navigationController?.navigationBar.prefersLargeTitles = false
     
-    navigationController?.navigationBar.backgroundColor = .systemGray6
+    navigationController?.navigationBar.backgroundColor = .white
     navigationController?.navigationBar.barStyle = .default
     navigationController?.navigationBar.prefersLargeTitles = true
     navigationItem.title = "CityEvents"
@@ -94,6 +60,8 @@ class EventController: UICollectionViewController {
 
   }
 }
+
+// MARK: - UICollectionViewDataSource/Delegate
 
 extension EventController {
   
@@ -105,17 +73,28 @@ extension EventController {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EventCell
 //    cell.backgroundColor = .blue
     
-    let event = events[indexPath.item]
-    cell.nameLabel.text = event.title ?? ""
-    cell.imageView.sd_setImage(with: URL(string: event.image ?? ""), placeholderImage: UIImage(named: "event.png"))
+    cell.event = self.events[indexPath.item]
+    
+//    let event = events[indexPath.item]
+//    cell.nameLabel.text = event.title ?? ""
+//    cell.imageView.sd_setImage(with: URL(string: event.image ?? ""), placeholderImage: UIImage(named: "event.png"))
         
     return cell
   }
+  
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    let controller = EventInfoController()
+    controller.event = events[indexPath.row]
+    navigationController?.pushViewController(controller, animated: true)
+  }
 }
+
+// MARK: - UICollectionViewDelegateFlowLayout
 
 extension EventController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-    return UIEdgeInsets(top: 32, left: 16, bottom: 32, right: 16)
+    return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
